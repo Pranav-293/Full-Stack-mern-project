@@ -6,7 +6,7 @@ const PORT = process.env.PORT||4000;
 const app = express();
 app.use(express.json());
 app.use(express.static('build'));
-app.get("/allTodo", async (req, res) => {
+app.get("/api/allTodo", async (req, res) => {
   try {
     const result = {
       activeList: await activeItems.find(),
@@ -18,7 +18,7 @@ app.get("/allTodo", async (req, res) => {
   }
 });
 
-app.post("/addTodo", async (req, res) => {
+app.post("/api/addTodo", async (req, res) => {
   try {
     const newTodo = await new activeItems({
       text: req.body.text,
@@ -30,7 +30,7 @@ app.post("/addTodo", async (req, res) => {
   }
 });
 
-app.put("/completeTodo/:id", async (req, res) => {
+app.put("/api/completeTodo/:id", async (req, res) => {
   try {
     const id = req.params.id;
     const todo = await activeItems.findByIdAndDelete(id);
@@ -44,7 +44,7 @@ app.put("/completeTodo/:id", async (req, res) => {
   }
 });
 
-app.delete("/deleteTodo/:id", async (req, res) => {
+app.delete("/api/deleteTodo/:id", async (req, res) => {
   try {
     const id = req.params.id;
   const todo = await completedItems.findByIdAndDelete(id);
