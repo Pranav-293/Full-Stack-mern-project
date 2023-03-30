@@ -2,7 +2,7 @@ const express = require("express");
 const db = require("./configs/db.config");
 const activeItems = require("./models/activeItems");
 const completedItems = require("./models/completedItem");
-const PORT = 4000;
+const PORT = process.env.PORT||4000;
 const app = express();
 app.use(express.json());
 app.use(express.static('build'));
