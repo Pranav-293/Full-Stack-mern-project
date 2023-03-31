@@ -5,7 +5,7 @@ const completedItems = require("./models/completedItem");
 const PORT = process.env.PORT||4000;
 const app = express();
 app.use(express.json());
-app.use(express.static('build'));
+app.use(express.static("build"));
 
 app.get("/api/allTodo", async (req, res) => {
   try {
