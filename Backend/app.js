@@ -1,5 +1,5 @@
 const express = require("express"); 
-const db=require("./configs/db.config")
+const db=require("./configs/db.config");
 const activeItems = require("./models/activeItems");
 const completedItems = require("./models/completedItem");
 const PORT = process.env.PORT||4000;
